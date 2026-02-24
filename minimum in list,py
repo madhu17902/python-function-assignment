@@ -1,0 +1,9 @@
+def find_min(lst):
+    m = lst[0]
+    for i in lst:
+        if i < m:
+            m = i
+    return m
+
+nums = [4, 2, 9, 1, 5]
+print("Minimum:", find_min(nums))
