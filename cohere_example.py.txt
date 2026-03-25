@@ -1,0 +1,19 @@
+import os
+import cohere
+
+co = cohere.Client(os.getenv("H0CT7hUwezRnKGHPZ2h01lBvk5N12tEOZjq2JE4l"))
+
+def query_cohere(prompt):
+    try:
+        response = co.generate(
+            model="command",
+            prompt=prompt,
+            max_tokens=100
+        )
+        return response.generations[0].text
+    except Exception as e:
+        return str(e)
+
+if __name__ == "__main__":
+    prompt = input("Enter prompt: ")
+    print(query_cohere(prompt))
